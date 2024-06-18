@@ -1,0 +1,6 @@
+LIBRARY "SERVER"
+DESCRIPTION 'SERVER Windows Dynamic Link Library'
+EXPORTS
+; „I„}„u„~„p „„„€„‰„u„{ „r„‡„€„t„p „t„|„‘ „r„~„u„Š„~„u„s„€ „„€„|„Ž„x„€„r„p„~„y„‘ „„€„}„u„‹„p„„„„ƒ„‘ „x„t„u„ƒ„Ž
+	DllGetClassObject	PRIVATE
+	DllCanUnloadNow		PRIVATE
