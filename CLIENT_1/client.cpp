@@ -7,12 +7,14 @@
  
 int _main() {
 	printf("Initializing COM\n");
+	system("pause");
+
 	if (FAILED(CoInitialize(NULL))) {
 		printf("unable to initialize COM \n");
 		return -1;
 	}
 
-	const char* szProgID = R"(Lab1_Var8.Component.1)";
+	const char* szProgID = R"(Lab1.Var8.Component.1)";
 	WCHAR szWideProgID[128];
 	CLSID clsid;
 	long lLen = MultiByteToWideChar(CP_ACP, 0, szProgID,
@@ -61,6 +63,9 @@ int _main() {
 }
 
 int main(int argc, char* argv[]) {
+	int pidw = (int)GetCurrentProcessId();
+	printf("PID %d", pidw);
+
 	auto res = _main();
 	system("pause");
 	return res;

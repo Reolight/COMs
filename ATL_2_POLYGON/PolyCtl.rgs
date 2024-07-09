@@ -1,0 +1,34 @@
+HKCR
+{
+	Polygon Control.1 = s 'PolyCtl class'
+	{
+		CLSID = s '{c6c3d021-cc75-49e8-a796-0dce29a14176}'
+		Insertable
+	}
+	Polygon Control = s 'PolyCtl class'
+	{		
+		CurVer = s 'Polygon Control.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {c6c3d021-cc75-49e8-a796-0dce29a14176} = s 'PolyCtl class'
+		{
+			ProgID = s 'Polygon Control.1'
+			VersionIndependentProgID = s 'Polygon Control'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove Control
+			ForceRemove Insertable
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 106'
+			MiscStatus = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			TypeLib = s '{a0d17eb0-96eb-4c4e-9de2-57ed328e2986}'
+			Version = s '1.0'
+		}
+	}
+}

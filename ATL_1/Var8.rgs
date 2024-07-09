@@ -1,0 +1,26 @@
+HKCR
+{
+	Var8Lab3.Component.1 = s 'CoVar8 class'
+	{
+		CLSID = s '{e6a1dcca-7608-460f-85a9-44e672da15d6}'
+	}
+	Var8Lab3.Component = s 'CoVar8 class'
+	{		
+		CurVer = s 'Var8Lab3.Component.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {e6a1dcca-7608-460f-85a9-44e672da15d6} = s 'CoVar8 class'
+		{
+			ProgID = s 'Var8Lab3.Component.1'
+			VersionIndependentProgID = s 'Var8Lab3.Component'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{270c0e99-81e7-4cc3-8973-96e7f754c49c}'
+			Version = s '1.0'
+		}
+	}
+}

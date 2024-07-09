@@ -1,0 +1,55 @@
+// ATL_2_POLYGON.idl : IDL source for ATL_2_POLYGON
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ATL2POLYGON.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(46b020de-1e5d-499f-bed2-b398ee25ea5e),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPolyCtl : IDispatch
+{
+	[propput, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([in]OLE_COLOR clr);
+	[propget, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([out, retval]OLE_COLOR* pclr);
+	[propget, helpstring("Property Sides"), id(1)] HRESULT Sides([out, retval] SHORT* pVal);
+	[propput, helpstring("Property Sides"), id(1)] HRESULT Sides([in] SHORT newVal);
+};
+
+[
+	uuid(a0d17eb0-96eb-4c4e-9de2-57ed328e2986),
+	version(1.0),
+]
+library ATL2POLYGONLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(b99918e8-4e48-48f0-baa6-239928b88ac6)
+	]
+	dispinterface _IPolyCtlEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("Method ClickIn")] void ClickIn([in] LONG x,[in] LONG y);
+			[id(2), helpstring("Method ClickOut")] void ClickOut([in] LONG x, [in] LONG y);
+	};
+	[
+		uuid(c6c3d021-cc75-49e8-a796-0dce29a14176),
+		control
+	]
+	coclass PolyCtl
+	{
+		[default] interface IPolyCtl;
+		[default, source] dispinterface _IPolyCtlEvents;
+	};
+};
+

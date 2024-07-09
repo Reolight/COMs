@@ -1,0 +1,32 @@
+HKCR
+{
+	atl control.1 = s 'ATLControl class'
+	{
+		CLSID = s '{431591c7-b4c0-4741-b091-0e8b002f8bda}'
+	}
+	atl control = s 'ATLControl class'
+	{		
+		CurVer = s 'atl control.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {431591c7-b4c0-4741-b091-0e8b002f8bda} = s 'ATLControl class'
+		{
+			ProgID = s 'atl control.1'
+			VersionIndependentProgID = s 'atl control'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove Control
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 107'
+			MiscStatus = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			TypeLib = s '{270c0e99-81e7-4cc3-8973-96e7f754c49c}'
+			Version = s '1.0'
+		}
+	}
+}

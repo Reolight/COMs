@@ -1,0 +1,39 @@
+// ATL_1.idl : IDL source for ATL_1
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ATL1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(23fa3c5b-bdda-41d9-9b29-bb8db9badb59),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVar8 : IDispatch
+{
+	[id(1)] HRESULT Fun81([in] int a, [in] int b, [out, retval] float* ret);
+	[id(2)] HRESULT Func82([in] int a, [in] int b, [in] int c, [out, retval] int* ret);
+	[id(3)] HRESULT Func83([in] DOUBLE in, [out] DOUBLE* out);
+};
+[
+	uuid(270c0e99-81e7-4cc3-8973-96e7f754c49c),
+	version(1.0),
+]
+library ATL1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(e6a1dcca-7608-460f-85a9-44e672da15d6)
+	]
+	coclass CoVar8
+	{
+		[default] interface IVar8;
+	};
+};
+
+import "shobjidl.idl";
